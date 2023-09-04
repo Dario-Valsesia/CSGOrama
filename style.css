@@ -1,0 +1,197 @@
+:root{
+    --ancho: calc(80vw/6);
+    --alto: calc(85vh/3)
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 1s;
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: #343C5E;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.tablero{
+    width: 95vw;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 1rem;
+    margin: auto;
+}
+
+.area-tarjeta, .tarjeta, .cara{
+    width: var(--ancho);
+    height: var(--alto);
+    background-color: inherit;
+    min-width: 150px;
+}
+.area-tarjeta{
+    margin: 0 .5rem ;
+}
+.tarjeta{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: iniciar 6s;
+    cursor: pointer;
+}
+@keyframes iniciar {
+    40%,90%{
+        transform: rotateY(180deg);
+    }
+    0%,100%{
+        transform: rotateY(0deg);
+    }
+}
+/************PARA VER TRANSFORMACION*********/
+
+.girar{
+    transform: rotateY(180deg);
+}
+/*********************************************/
+.cara{
+    position: absolute;
+    backface-visibility: hidden;
+    box-shadow: inset 0 0 0 5px #333;
+}
+
+.trasera{
+    background: linear-gradient(to bottom,#666,#111);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+}
+.superior{
+    background-image: url(./img/logoCsGO.jpg);
+    background-size: unset;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/***************CONTENIDO DE LA TARJETA*******************/
+.contenedor-imagen{
+    width: 100%;
+    height: 60%;
+}
+
+.img-arma{
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+    border-radius: .5rem;
+}
+.h2{
+    font-size: 22px;
+    text-align: center;
+    height: 20%;
+    color: #fff;
+}
+
+.correcta{
+    transform: rotateY(180deg);
+    filter: grayscale(0.5)
+}
+
+/***MODAL***/
+.contenedorPrincipalModal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0008;
+    animation: modalAnimacion 1.5s;
+    z-index: 40;
+}
+.contenedorAnimacion{
+    width: 40rem;
+    height: 22rem;
+    border-radius: 1rem;
+    border: 1px solid #fff;
+    background-color: #343C5E;
+    padding: 1.5rem;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%) !important;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+@keyframes modalAnimacion {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.contenedorAnimacion h2{
+    font-size: 35px;
+    margin-bottom: 2rem;
+}
+.contenedorRango{
+    margin-top: 1.5rem;
+}
+.imagenRango{
+    border-radius: .5rem;
+    object-fit: contain;
+    margin-top: .5rem;
+}
+
+/******************BOTON*******************/
+
+
+.btn{
+    width: 20rem;
+    height: 4rem;
+    background-image: url(./img/logoCsGO.jpg);
+    color: #fff;
+    border-radius: .5rem;
+    letter-spacing: .5rem;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.contenedorInicio{
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url(./img/fondo.jpg);
+    background-size: cover;
+}
+.titulo{
+    font-size: 60px;
+    color: #fff;
+    margin-top: 2rem;
+}
+.parrafo{
+    font-size: 28px;
+    background-color: #0008;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}

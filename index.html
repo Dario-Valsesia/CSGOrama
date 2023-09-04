@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSGorama</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="body">
+    <div id="app">
+
+        <div v-if="verTablero" class="tablero">
+            <div v-for="carta in cartas" @click="rotar"  class="area-tarjeta">
+                <div :class="{'d': carta.duplicado, 'tarjeta': true }" :data-id="carta.id">
+                    <div class="cara trasera">
+                        <div class="contenedor-imagen">
+                            <img class="img-arma" :src="carta.url" alt="">
+                        </div>
+                        <h2 class="h2">{{carta.nombre}}</h2>
+                    </div>
+                    <div class="cara superior"></div>                                 
+                </div>
+            </div>      
+        </div>  
+
+        <div v-else class="contenedorInicio">
+            <h1 class="titulo">CS GOrama</h1>
+            <p class="parrafo">Bienvenido a CS GOrama, aqui podras medir tu memoria y al finalizar el juego se te dara un rango dependiendo la cantidad de clicks que hayas realizado</p>
+            <button @click="jugar" class="btn">Empezar</button>
+        </div>
+        
+        
+        <!-- MODAL VICTORIA -->
+        <div v-if="cantidadCorrectos==8" class="contenedorPrincipalModal">
+            <div class="contenedorAnimacion">
+                <h2>Felicitaciones!</h2>
+                <p>Finalizaste el juego con un total de {{contadorClicks}} clicks</p>
+                <div class="contenedorRango">
+                    <p>Tu rango es {{rango}}</p>
+                    <img class="imagenRango" :src="rangoImagen" alt="">
+                </div>
+            </div>
+        </div>
+    
+
+    
+    
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
